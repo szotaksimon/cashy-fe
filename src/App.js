@@ -17,9 +17,11 @@ function Money() {
   console.log(data)
 
   return (
-    <ul>
-      {data.map((money) => (<li key={money.id}>{money.amount}</li>))}
-    </ul>
+    <div>
+      <ul>
+        {data.map((money) => (<li key={money.id}>{money.amount} Ft | {money.category.categoryName} - {money.income ? 'bevétel' : 'kiadás'}</li>))}
+      </ul>
+    </div>
   )
 }
 
