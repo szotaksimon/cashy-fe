@@ -1,9 +1,34 @@
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+const queryClient = new QueryClient()
 
+async function fetchMoney() {
+  const res = await fetch(process.env.REACT_APP_BACKEND_URL+'/money-flow')
+  return res.json()
+}
+
+function Money() {
+  const { data, status } = useQuery('money', fetchMoney)
+  if (status === 'loading') {
+    return <p>Loading...</p>
+  }
+  if (status === 'error') {
+    return <p>Error!</p>
+  }
+  console.log(data)
+
+  return (
+    <ul>
+      {data.map((money) => (<li key={money.id}>{money.amount}</li>))}
+    </ul>
+  )
+}
 
 function App() {
   return (
     <div>
-      <h1>Hello WOrld!</h1>
+      <QueryClientProvider client={queryClient}>
+        <Money />
+      </QueryClientProvider>
     </div>
   );
 }
