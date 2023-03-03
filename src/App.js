@@ -1,38 +1,35 @@
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+
+import Income from './components/Income';
+import Expense from './components/Expense';
+
 const queryClient = new QueryClient()
 
-async function fetchMoney() {
-  const res = await fetch(process.env.REACT_APP_BACKEND_URL+'/money-flow')
-  return res.json()
-}
-
-function Money() {
-  const { data, status } = useQuery('money', fetchMoney)
-  if (status === 'loading') {
-    return <p>Loading...</p>
-  }
-  if (status === 'error') {
-    return <p>Error!</p>
-  }
-  console.log(data)
-
-  return (
-    <div>
-      <ul>
-        {data.map((money) => (<li key={money.id}>{money.amount} Ft | {money.category.categoryName} - {money.income ? 'bevétel' : 'kiadás'}</li>))}
-      </ul>
-    </div>
-  )
-}
+const API_URL = process.env.REACT_APP_BACKEND_URL + '/money-flow'
 
 function App() {
+  const { isLoading, error, data } = useQuery('todos', () =>
+    fetch(API_URL).then((res) => res.json()));
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error :</p>;
+
+
   return (
     <div>
-      <QueryClientProvider client={queryClient}>
-        <Money />
-      </QueryClientProvider>
+      <Income items={data} />
+      <Expense items={data} />
     </div>
   );
 }
 
-export default App;
+function AppWrapper() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+  );
+}
+
+export default AppWrapper;
+
