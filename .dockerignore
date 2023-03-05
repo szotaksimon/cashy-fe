@@ -2,3 +2,4 @@ build
 README.md
 .gitignore
 .env
+/node_modules
