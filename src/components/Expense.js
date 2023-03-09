@@ -1,19 +1,21 @@
-function Income(props) { 
-  
-  const filtered = props.items.filter(item => {
-    return item.income  === !true
-  })
+import { Link } from "react-router-dom"
+import "../styles/Expense.css"
 
-  console.log(filtered)
+
+function Expense(props) { 
+  
+  console.log(props.expenses)
 
   return (
-    <div>
-      <h2>Kiadások</h2>
-      <ul>
-      {filtered.map((item) => (<li key={item.id}>{item.amount} Ft | {item.category.categoryName} - {item.income ? 'bevétel' : 'kiadás'}</li>))}
-      </ul>
-    </div>
+    <Link to="/">
+      <div className="expense">
+        <h2>Kiadások</h2>
+        <div>
+        {props.expenses.map((item) => (<p key={item.id}>{item.amount} Ft | {item.category.categoryName}</p>))}
+        </div>
+      </div>
+    </Link>
   );
 }
 
-export default Income;
+export default Expense;

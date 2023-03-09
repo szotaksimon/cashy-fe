@@ -1,18 +1,18 @@
+import { Link } from "react-router-dom"
+import "../styles/Income.css"
 function Income(props) { 
   
-  const filtered = props.items.filter(item => {
-    return item.income  === true
-  })
-
-  console.log(filtered)
+  console.log(props.incomes)
 
   return (
-    <div>
-      <h2>Bevételek</h2>
-      <ul>
-      {filtered.map((item) => (<li key={item.id}>{item.amount} Ft | {item.category.categoryName} - {item.income ? 'bevétel' : 'kiadás'}</li>))}
-      </ul>
-    </div>
+    <Link to="/expenses">
+      <div className="income">
+        <h2>Bevételek</h2>
+        <div>
+        {props.incomes.map((item) => (<p key={item.id}>{item.amount} Ft | {item.category.categoryName}</p>))}
+        </div>
+      </div>
+    </Link>
   );
 }
 
