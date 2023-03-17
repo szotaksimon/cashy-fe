@@ -1,9 +1,9 @@
-
+import Incomes from "./components/Incomes";
 
 function App() {
   return (
     <div>
-      <h1>Hello WOrld!</h1>
+      <Incomes />
     </div>
   );
 }
