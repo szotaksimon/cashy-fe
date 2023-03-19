@@ -1,35 +1,28 @@
-import "../UI/Incomes.css"
+import "../../UI/Incomes.css"
 
-const Incomes = () => {
+const InputContainer = () => {
     return (
-        <div className="container">
-            <h2>Incomes</h2>
-            <div className="income-input-div">
+        <div className="income-input-div">
                 <span className="value-input">
                     <input type="text" placeholder="Value" />
                 </span>
                 <span className="category-input">
                     <select name="categorys" id="categorys">
-                        <option value="category">Payment</option>
-                        <option value="saab">Saab</option>
-                        <option value="opel">Opel</option>
-                        <option value="audi">Audi</option>
+                        <option value="salary">Salary</option>
+                        <option value="investments">Investments</option>
+                        <option value="gifts">Gifts</option>
                     </select>
                 </span>
                 <span className="comment-input">
                     <input type="text" placeholder="Comment" />
                 </span>
                 <span className="date-input">
-                    <input type="date" placeholder="Date" />
+                    <input type="date" />
                 </span>
                 <span>
                     <button>Ok</button>
                 </span>
             </div>
-            <div className="show-incomes-div">
-                asd
-            </div>
-        </div>
     )
 }
-export default Incomes
+export default InputContainer

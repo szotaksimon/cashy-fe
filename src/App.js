@@ -1,4 +1,4 @@
-import Incomes from "./components/Incomes";
+import Incomes from "./components/Income/Incomes";
 
 function App() {
   return (
