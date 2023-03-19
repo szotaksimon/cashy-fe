@@ -1,6 +1,8 @@
+import "../../UI/Reusable/ContentList.css"
+
 const ContentList = () => {
     return (
-        <div className="show-incomes-div">
+        <div className="content-list-div">
             content-list
         </div>
     )

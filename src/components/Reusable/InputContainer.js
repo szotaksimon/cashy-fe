@@ -1,8 +1,8 @@
-import "../../UI/Incomes.css"
+import "../../UI/Reusable/InputContainer.css"
 
 const InputContainer = () => {
     return (
-        <div className="income-input-div">
+        <div className="input-div">
                 <span className="value-input">
                     <input type="text" placeholder="Value" />
                 </span>
