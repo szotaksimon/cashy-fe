@@ -1,9 +1,9 @@
-
+import Expenses from "./components/Expense/Expenses";
 
 function App() {
   return (
     <div>
-      <h1>Hello WOrld!</h1>
+      <Expenses />
     </div>
   );
 }
