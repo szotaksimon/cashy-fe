@@ -1,10 +1,10 @@
-import "../../UI/Reusable/ContentList.css"
+import "../../UI/Reusable/ContentListContainer.css"
 
-const ContentList = () => {
+const ContentListContainer = () => {
     return (
-        <div className="content-list-div">
-            content-list
+        <div className="content-list-container">
+            content-list-container
         </div>
     )
 }
-export default ContentList
+export default ContentListContainer

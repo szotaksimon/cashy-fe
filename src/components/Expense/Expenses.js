@@ -1,7 +1,7 @@
 import Container from "../Reusable/Container"
 import Title from "../Reusable/Title"
 import InputContainer from "../Reusable/InputContainer"
-import ContentList from "../Reusable/ContentList"
+import ContentListContainer from "../Reusable/ContentListContainer"
 
 
 const Expenses = () => {
@@ -9,7 +9,7 @@ const Expenses = () => {
         <Container>
             <Title />
             <InputContainer />
-            <ContentList />
+            <ContentListContainer />
         </Container>
     )
 }
